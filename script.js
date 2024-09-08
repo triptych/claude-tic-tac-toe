@@ -3,6 +3,7 @@ const cells = document.querySelectorAll(".cell");
 const status = document.getElementById("status");
 const restartButton = document.getElementById("restart");
 const loadButton = document.getElementById("load");
+const saveStatus = document.getElementById("save-status");
 
 let currentPlayer = "🦄";
 let gameState = ["", "", "", "", "", "", "", "", ""];
@@ -90,6 +91,7 @@ function restartGame() {
 		cell.classList.remove("winner");
 	});
 	localStorage.removeItem("ticTacToeGameState");
+	showSaveStatus("Game restarted");
 }
 
 function saveGameState() {
@@ -99,6 +101,7 @@ function saveGameState() {
 		gameActive
 	};
 	localStorage.setItem("ticTacToeGameState", JSON.stringify(gameStateData));
+	showSaveStatus("Game saved");
 }
 
 function loadGameState() {
@@ -114,8 +117,9 @@ function loadGameState() {
 			cell.classList.remove("winner");
 		});
 		checkWinningCondition();
+		showSaveStatus("Game loaded");
 	} else {
-		alert("No saved game found!");
+		showSaveStatus("No saved game found!");
 	}
 }
 
@@ -133,6 +137,14 @@ function checkWinningCondition() {
 			break;
 		}
 	}
+}
+
+function showSaveStatus(message) {
+	saveStatus.textContent = message;
+	saveStatus.style.opacity = "1";
+	setTimeout(() => {
+		saveStatus.style.opacity = "0";
+	}, 2000);
 }
 
 cells.forEach((cell) => {
