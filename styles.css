@@ -1,0 +1,157 @@
+body {
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #ffd700;
+	min-height: 100vh;
+	margin: 0;
+	padding: 20px;
+}
+
+h1 {
+	color: #ff69b4;
+	font-size: 48px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	animation: rainbow 5s linear infinite;
+}
+
+@keyframes rainbow {
+	0% {
+		color: #ff69b4;
+	}
+	16% {
+		color: #ff6347;
+	}
+	32% {
+		color: #ffd700;
+	}
+	48% {
+		color: #32cd32;
+	}
+	64% {
+		color: #1e90ff;
+	}
+	80% {
+		color: #8a2be2;
+	}
+	100% {
+		color: #ff69b4;
+	}
+}
+
+#game-board {
+	display: grid;
+	grid-template-columns: repeat(3, 120px);
+	grid-gap: 10px;
+	margin-bottom: 20px;
+	background-color: #ff69b4;
+	padding: 15px;
+	border-radius: 15px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.cell {
+	width: 120px;
+	height: 120px;
+	background-color: #fff;
+	border: 3px solid #ff69b4;
+	font-size: 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	border-radius: 15px;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cell:hover {
+	transform: scale(1.05);
+	animation: wiggle 0.5s ease infinite;
+}
+
+@keyframes wiggle {
+	0% {
+		transform: rotate(0deg) scale(1.05);
+	}
+	25% {
+		transform: rotate(1deg) scale(1.05);
+	}
+	75% {
+		transform: rotate(-1deg) scale(1.05);
+	}
+	100% {
+		transform: rotate(0deg) scale(1.05);
+	}
+}
+
+.cell.winner {
+	animation: dance 0.5s ease infinite;
+}
+
+@keyframes dance {
+	0% {
+		transform: translateY(0);
+	}
+	25% {
+		transform: translateY(-10px) rotate(5deg);
+	}
+	50% {
+		transform: translateY(0) rotate(0deg);
+	}
+	75% {
+		transform: translateY(-10px) rotate(-5deg);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+#status {
+	font-size: 28px;
+	margin-bottom: 20px;
+	color: #333;
+	text-align: center;
+	background-color: #fff;
+	padding: 10px 20px;
+	border-radius: 25px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-container {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+
+#restart, #load {
+	font-size: 24px;
+	padding: 15px 30px;
+	background-color: #32cd32;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius: 25px;
+	transition: all 0.3s ease;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#restart:hover, #load:hover {
+	background-color: #28a745;
+	transform: scale(1.05);
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+#restart:active, #load:active {
+	transform: scale(0.95);
+}
+
+#load {
+	background-color: #1e90ff;
+}
+
+#load:hover {
+	background-color: #1c86ee;
+}
