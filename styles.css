@@ -14,6 +14,7 @@ h1 {
 	font-size: 48px;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 	animation: rainbow 5s linear infinite;
+	margin-bottom: 20px;
 }
 
 @keyframes rainbow {
@@ -38,6 +39,17 @@ h1 {
 	100% {
 		color: #ff69b4;
 	}
+}
+
+#game-container {
+	display: none;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+}
+
+#game-container.show {
+	display: block;
+	opacity: 1;
 }
 
 #game-board {
@@ -138,7 +150,7 @@ h1 {
 	gap: 20px;
 }
 
-#restart, #load {
+#start-game, #restart, #load {
 	font-size: 24px;
 	padding: 15px 30px;
 	background-color: #32cd32;
@@ -151,14 +163,24 @@ h1 {
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#restart:hover, #load:hover {
+#start-game:hover, #restart:hover, #load:hover {
 	background-color: #28a745;
 	transform: scale(1.05);
 	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
-#restart:active, #load:active {
+#start-game:active, #restart:active, #load:active {
 	transform: scale(0.95);
+}
+
+#start-game {
+	font-size: 32px;
+	padding: 20px 40px;
+	background-color: #ff69b4;
+}
+
+#start-game:hover {
+	background-color: #ff1493;
 }
 
 #load {
